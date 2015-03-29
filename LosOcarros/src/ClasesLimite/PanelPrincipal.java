@@ -179,7 +179,6 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel5 = new org.edisoncor.gui.panel.Panel();
         registro = new org.edisoncor.gui.tabbedPane.TabbedSelector2();
         examen_medico = new org.edisoncor.gui.panel.Panel();
-        panel19 = new org.edisoncor.gui.panel.Panel();
         Constantes_Fisiologicas1 = new org.edisoncor.gui.panel.Panel();
         jLabel55 = new javax.swing.JLabel();
         examen_clinico_registrar1 = new org.edisoncor.gui.button.ButtonAction();
@@ -191,6 +190,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         ObservacionesExamen = new javax.swing.JTextArea();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
+        panel19 = new org.edisoncor.gui.panel.Panel();
         evaluacion_externa = new org.edisoncor.gui.panel.Panel();
         general = new org.edisoncor.gui.panel.Panel();
         jLabel5 = new javax.swing.JLabel();
@@ -282,11 +282,17 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel14 = new org.edisoncor.gui.panel.Panel();
         terapeutica_evolucion = new org.edisoncor.gui.panel.Panel();
         panel17 = new org.edisoncor.gui.panel.Panel();
+        jLabel47 = new javax.swing.JLabel();
+        fecha_terapeutica = new com.toedter.calendar.JDateChooser();
+        jLabel58 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        terapeutica_registrar = new org.edisoncor.gui.button.ButtonAction();
         panel18 = new org.edisoncor.gui.panel.Panel();
         panel26 = new org.edisoncor.gui.panel.Panel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
-        Responsable_Registro1 = new org.edisoncor.gui.textField.TextField();
+        registro_id_registro = new org.edisoncor.gui.textField.TextField();
         buscarClinica = new javax.swing.JComboBox();
         jLabel66 = new javax.swing.JLabel();
         buttonAction7 = new org.edisoncor.gui.button.ButtonAction();
@@ -299,6 +305,12 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         EnfermedadAnimalesCercanos.getAccessibleContext().setAccessibleName("Enfermedad animales cercanos");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tabbedPaneRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabbedPaneRound1MouseClicked(evt);
+            }
+        });
 
         tabbedSelector21.addTab("Todas Las Historias", basicTableCellenderer1);
 
@@ -980,19 +992,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
 
         tabbedPaneRound1.addTab("Historias Clinicas", tabbedSelector21);
 
-        panel19.setColorPrimario(new java.awt.Color(255, 255, 255));
-        panel19.setColorSecundario(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout panel19Layout = new javax.swing.GroupLayout(panel19);
-        panel19.setLayout(panel19Layout);
-        panel19Layout.setHorizontalGroup(
-            panel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
-        );
-        panel19Layout.setVerticalGroup(
-            panel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
+        examen_medico.setLayout(new javax.swing.BoxLayout(examen_medico, javax.swing.BoxLayout.LINE_AXIS));
 
         Constantes_Fisiologicas1.setColorPrimario(new java.awt.Color(255, 255, 255));
         Constantes_Fisiologicas1.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1060,7 +1060,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                                 .addComponent(Examen, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Constantes_Fisiologicas1Layout.createSequentialGroup()
-                                .addGap(0, 10, Short.MAX_VALUE)
+                                .addGap(0, 20, Short.MAX_VALUE)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Constantes_Fisiologicas1Layout.createSequentialGroup()
@@ -1095,26 +1095,29 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                 .addComponent(examen_clinico_registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout examen_medicoLayout = new javax.swing.GroupLayout(examen_medico);
-        examen_medico.setLayout(examen_medicoLayout);
-        examen_medicoLayout.setHorizontalGroup(
-            examen_medicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(examen_medicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Constantes_Fisiologicas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        examen_medico.add(Constantes_Fisiologicas1);
+
+        panel19.setColorPrimario(new java.awt.Color(255, 255, 255));
+        panel19.setColorSecundario(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout panel19Layout = new javax.swing.GroupLayout(panel19);
+        panel19.setLayout(panel19Layout);
+        panel19Layout.setHorizontalGroup(
+            panel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 377, Short.MAX_VALUE)
         );
-        examen_medicoLayout.setVerticalGroup(
-            examen_medicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Constantes_Fisiologicas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        panel19Layout.setVerticalGroup(
+            panel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
+
+        examen_medico.add(panel19);
 
         registro.addTab("Solicitar Examen Medico", examen_medico);
 
         evaluacion_externa.setColorPrimario(new java.awt.Color(255, 255, 255));
         evaluacion_externa.setColorSecundario(new java.awt.Color(255, 255, 255));
+        evaluacion_externa.setLayout(new javax.swing.BoxLayout(evaluacion_externa, javax.swing.BoxLayout.LINE_AXIS));
 
         general.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         general.setColorPrimario(new java.awt.Color(255, 255, 255));
@@ -1255,6 +1258,11 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         jLabel46.setText("NE");
 
         evaluacion_externa_registrar.setText("Registrar");
+        evaluacion_externa_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evaluacion_externa_registrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
         panel9.setLayout(panel9Layout);
@@ -1461,7 +1469,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                     .addComponent(jLabel40)
                     .addComponent(jLabel42)
                     .addComponent(jLabel43))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1498,6 +1506,8 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
             .addComponent(panel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        evaluacion_externa.add(general);
+
         panel10.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel10.setColorSecundario(new java.awt.Color(204, 204, 204));
 
@@ -1505,35 +1515,20 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel10.setLayout(panel10Layout);
         panel10Layout.setHorizontalGroup(
             panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
+            .addGap(0, 389, Short.MAX_VALUE)
         );
         panel10Layout.setVerticalGroup(
             panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout evaluacion_externaLayout = new javax.swing.GroupLayout(evaluacion_externa);
-        evaluacion_externa.setLayout(evaluacion_externaLayout);
-        evaluacion_externaLayout.setHorizontalGroup(
-            evaluacion_externaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(evaluacion_externaLayout.createSequentialGroup()
-                .addComponent(general, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        evaluacion_externaLayout.setVerticalGroup(
-            evaluacion_externaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(general, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(evaluacion_externaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        evaluacion_externa.add(panel10);
 
         registro.addTab("Evaluacion Externa", evaluacion_externa);
 
         examen_clinico.setColorPrimario(new java.awt.Color(255, 255, 255));
         examen_clinico.setColorSecundario(new java.awt.Color(255, 255, 255));
+        examen_clinico.setLayout(new javax.swing.BoxLayout(examen_clinico, javax.swing.BoxLayout.LINE_AXIS));
 
         Constantes_Fisiologicas.setColorPrimario(new java.awt.Color(255, 255, 255));
         Constantes_Fisiologicas.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1595,10 +1590,10 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                         .addGroup(Constantes_FisiologicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Constantes_FisiologicasLayout.createSequentialGroup()
                                 .addComponent(examen_clinico_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(99, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(Constantes_FisiologicasLayout.createSequentialGroup()
                                 .addGroup(Constantes_FisiologicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fisiologica_mm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fisiologica_mm, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                                     .addComponent(fisiologica_fr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fisiologica_t, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fisiologica_tllc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1652,9 +1647,12 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                         .addGroup(Constantes_FisiologicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fisiologica_cc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel67))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(examen_clinico_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addComponent(examen_clinico_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
+
+        examen_clinico.add(Constantes_Fisiologicas);
 
         panel12.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel12.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1663,37 +1661,20 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel12.setLayout(panel12Layout);
         panel12Layout.setHorizontalGroup(
             panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
         panel12Layout.setVerticalGroup(
             panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout examen_clinicoLayout = new javax.swing.GroupLayout(examen_clinico);
-        examen_clinico.setLayout(examen_clinicoLayout);
-        examen_clinicoLayout.setHorizontalGroup(
-            examen_clinicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(examen_clinicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Constantes_Fisiologicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        examen_clinicoLayout.setVerticalGroup(
-            examen_clinicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Constantes_Fisiologicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(examen_clinicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        examen_clinico.add(panel12);
 
         registro.addTab("Examen Clinico", examen_clinico);
 
         diagnostico.setColorPrimario(new java.awt.Color(255, 255, 255));
         diagnostico.setColorSecundario(new java.awt.Color(255, 255, 255));
+        diagnostico.setLayout(new javax.swing.BoxLayout(diagnostico, javax.swing.BoxLayout.LINE_AXIS));
 
         panel16.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel16.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1702,12 +1683,14 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel16.setLayout(panel16Layout);
         panel16Layout.setHorizontalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 293, Short.MAX_VALUE)
         );
         panel16Layout.setVerticalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 642, Short.MAX_VALUE)
         );
+
+        diagnostico.add(panel16);
 
         panel13.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel13.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1716,34 +1699,20 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel13.setLayout(panel13Layout);
         panel13Layout.setHorizontalGroup(
             panel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
         panel13Layout.setVerticalGroup(
             panel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout diagnosticoLayout = new javax.swing.GroupLayout(diagnostico);
-        diagnostico.setLayout(diagnosticoLayout);
-        diagnosticoLayout.setHorizontalGroup(
-            diagnosticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diagnosticoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        diagnosticoLayout.setVerticalGroup(
-            diagnosticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        diagnostico.add(panel13);
 
         registro.addTab("Diagnostico", diagnostico);
 
         pronostico.setColorPrimario(new java.awt.Color(255, 255, 255));
         pronostico.setColorSecundario(new java.awt.Color(255, 255, 255));
+        pronostico.setLayout(new javax.swing.BoxLayout(pronostico, javax.swing.BoxLayout.LINE_AXIS));
 
         panel15.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel15.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1752,12 +1721,14 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel15.setLayout(panel15Layout);
         panel15Layout.setHorizontalGroup(
             panel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 293, Short.MAX_VALUE)
         );
         panel15Layout.setVerticalGroup(
             panel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 642, Short.MAX_VALUE)
         );
+
+        pronostico.add(panel15);
 
         panel14.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel14.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1766,51 +1737,73 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel14.setLayout(panel14Layout);
         panel14Layout.setHorizontalGroup(
             panel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
         panel14Layout.setVerticalGroup(
             panel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pronosticoLayout = new javax.swing.GroupLayout(pronostico);
-        pronostico.setLayout(pronosticoLayout);
-        pronosticoLayout.setHorizontalGroup(
-            pronosticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pronosticoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pronosticoLayout.setVerticalGroup(
-            pronosticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pronosticoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        pronostico.add(panel14);
 
         registro.addTab("Pronostico", pronostico);
 
         terapeutica_evolucion.setColorPrimario(new java.awt.Color(255, 255, 255));
         terapeutica_evolucion.setColorSecundario(new java.awt.Color(255, 255, 255));
+        terapeutica_evolucion.setLayout(new javax.swing.BoxLayout(terapeutica_evolucion, javax.swing.BoxLayout.LINE_AXIS));
 
         panel17.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel17.setColorSecundario(new java.awt.Color(204, 204, 204));
+
+        jLabel47.setText("Fecha:");
+
+        jLabel58.setText("Evolucion:");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane6.setViewportView(jTextArea1);
+
+        terapeutica_registrar.setText("Registrar");
 
         javax.swing.GroupLayout panel17Layout = new javax.swing.GroupLayout(panel17);
         panel17.setLayout(panel17Layout);
         panel17Layout.setHorizontalGroup(
             panel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGroup(panel17Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel17Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(terapeutica_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109))
+            .addGroup(panel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel17Layout.createSequentialGroup()
+                        .addComponent(jLabel47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fecha_terapeutica, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel17Layout.setVerticalGroup(
             panel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+            .addGroup(panel17Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(panel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel47)
+                    .addComponent(fecha_terapeutica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel58)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(terapeutica_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(275, Short.MAX_VALUE))
         );
+
+        terapeutica_evolucion.add(panel17);
 
         panel18.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel18.setColorSecundario(new java.awt.Color(204, 204, 204));
@@ -1819,29 +1812,14 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         panel18.setLayout(panel18Layout);
         panel18Layout.setHorizontalGroup(
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
         panel18Layout.setVerticalGroup(
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout terapeutica_evolucionLayout = new javax.swing.GroupLayout(terapeutica_evolucion);
-        terapeutica_evolucion.setLayout(terapeutica_evolucionLayout);
-        terapeutica_evolucionLayout.setHorizontalGroup(
-            terapeutica_evolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(terapeutica_evolucionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        terapeutica_evolucionLayout.setVerticalGroup(
-            terapeutica_evolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        terapeutica_evolucion.add(panel18);
 
         registro.addTab("Terapeutica Evolucion", terapeutica_evolucion);
 
@@ -1852,9 +1830,9 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         jLabel63.setText("Fecha:");
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel64.setText("Responsable:");
+        jLabel64.setText("Registro:");
 
-        Responsable_Registro1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        registro_id_registro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         buscarClinica.setEditable(true);
         buscarClinica.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1904,7 +1882,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                                 .addGroup(panel26Layout.createSequentialGroup()
                                     .addComponent(jLabel64)
                                     .addGap(3, 3, 3)
-                                    .addComponent(Responsable_Registro1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(registro_id_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panel26Layout.createSequentialGroup()
                                     .addComponent(jLabel63)
                                     .addGap(18, 18, 18)
@@ -1935,7 +1913,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                 .addGap(18, 18, 18)
                 .addGroup(panel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
-                    .addComponent(Responsable_Registro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registro_id_registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(370, 370, 370)
                 .addGroup(panel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAction8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1952,9 +1930,8 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
                 .addGap(0, 992, Short.MAX_VALUE))
             .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel5Layout.createSequentialGroup()
-                    .addContainerGap(226, Short.MAX_VALUE)
-                    .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                    .addGap(0, 226, Short.MAX_VALUE)
+                    .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 988, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2169,6 +2146,14 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         //
     }//GEN-LAST:event_buttonAction9ActionPerformed
 
+    private void evaluacion_externa_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluacion_externa_registrarActionPerformed
+        control.InsertarDatos(CapturaGeneral(), "general");
+    }//GEN-LAST:event_evaluacion_externa_registrarActionPerformed
+
+    private void tabbedPaneRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabbedPaneRound1MouseClicked
+        registro_id_registro.setText(control.SiguienteID("registro"));
+    }//GEN-LAST:event_tabbedPaneRound1MouseClicked
+
      public <String> ArrayList CapturaGeneral(){
         ArrayList<String> Captura = new ArrayList<String>();
 
@@ -2289,15 +2274,14 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
         if(otros_ne.isSelected()){
             Captura.add((String)"NE");
         }
-    
-        //Captura.add((String)N_Registro1.getText() ); // llave foranea .!!!
+        Captura.add((String)registro_id_registro.getText() ); // llave foranea .!!!
         
-
         return Captura;
     }
+     
     public void inicializarPrograma(){
         reestablecerInterfazHistoriaClinica();
-        
+        reestablecerRadioButtons();
     }
    
     private void reestablecerRadioButtons(){
@@ -2486,7 +2470,6 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private org.edisoncor.gui.textField.TextField Nombre_Comun;
     private javax.swing.JTextArea ObservacionesExamen;
     private javax.swing.JComboBox Origen;
-    private org.edisoncor.gui.textField.TextField Responsable_Registro1;
     private javax.swing.JComboBox Sexo;
     private org.edisoncor.gui.table.BasicTableCellenderer basicTableCellenderer1;
     private javax.swing.JComboBox buscarClinica;
@@ -2519,6 +2502,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private org.edisoncor.gui.panel.Panel examen_medico;
     private com.toedter.calendar.JDateChooser fecha;
     private com.toedter.calendar.JDateChooser fechaRegistro;
+    private com.toedter.calendar.JDateChooser fecha_terapeutica;
     private org.edisoncor.gui.textField.TextField fisiologica_actitud;
     private org.edisoncor.gui.textField.TextField fisiologica_cc;
     private org.edisoncor.gui.textField.TextField fisiologica_fc;
@@ -2577,6 +2561,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
@@ -2588,6 +2573,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
@@ -2603,6 +2589,8 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JRadioButton linfoide_an;
     private javax.swing.JRadioButton linfoide_n;
     private javax.swing.JRadioButton linfoide_ne;
@@ -2642,6 +2630,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private org.edisoncor.gui.textField.TextField procedencia;
     private org.edisoncor.gui.panel.Panel pronostico;
     private org.edisoncor.gui.tabbedPane.TabbedSelector2 registro;
+    private org.edisoncor.gui.textField.TextField registro_id_registro;
     private javax.swing.JRadioButton reproductivo_an;
     private javax.swing.JRadioButton reproductivo_n;
     private javax.swing.JRadioButton reproductivo_ne;
@@ -2658,6 +2647,7 @@ public class PanelPrincipal extends javax.swing.JFrame implements Runnable{
     private javax.swing.JRadioButton tegumento_n;
     private javax.swing.JRadioButton tegumento_ne;
     private org.edisoncor.gui.panel.Panel terapeutica_evolucion;
+    private org.edisoncor.gui.button.ButtonAction terapeutica_registrar;
     private org.edisoncor.gui.textField.TextField tiempo_cautiberio;
     private org.edisoncor.gui.textField.TextField tiempo_transporte;
     private org.edisoncor.gui.textField.TextField tipo_ingreso;

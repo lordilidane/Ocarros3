@@ -80,11 +80,16 @@ public class ControlSQL {
     String [] origen = {"id_origen","tipo_origen"};
     String [] registro = { "id_registro","fecha","responsable","clinico","historia_clinica_historia_clinica"};
     String [] anamnesicos ={"lugar_extraccion","procedencia", "tiempo_cautiverio", "t_ambiental","humedad","especie_contacto", "enfermedad_animales_cercanos","carac_cautiverio","tipo_transporte","tiempo_transporte","dieta_suministrada","frecuencia","consumo","signos_duracion","tratamiento_previo_respuesta","historia_clinica_identificacion"};
+    String [] general={"estado_general","hidratacion","tegumento","cardiovascular","respiratorio","digestivo","nervioso","musculo_esqueletico","urinario","reproductivo","linfoide","organos_sentidos","otros","registro_id_registro"};
+    
     
     public String[] cargarTitulos(String nombreTabla){
         
          switch (nombreTabla) {
-         case "anamnesicos":
+             case "general":
+                 return general;
+                    
+            case "anamnesicos":
                return anamnesicos; 
              
             case "animal":
@@ -266,6 +271,10 @@ public class ControlSQL {
          
         
         switch (nombreTabla) {
+            case "general":
+                parametroBox.setModel(new javax.swing.DefaultComboBoxModel(general));   
+                return general;
+                
             case "anamnesicos":
                    parametroBox.setModel(new javax.swing.DefaultComboBoxModel(anamnesicos));   
                    return anamnesicos; 
